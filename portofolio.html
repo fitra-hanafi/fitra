@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio Saya</title>
+    <style>
+        /* --- RESET & BASIC STYLES --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #0f172a;
+            color: #f8fafc;
+            overflow-x: hidden;
+        }
+
+        /* --- NAVIGATION MENU --- */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 10%;
+            background: rgba(15, 23, 42, 0.9);
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #38bdf8;
+            text-decoration: none;
+        }
+
+        .navbar a {
+            font-size: 16px;
+            color: #f8fafc;
+            text-decoration: none;
+            font-weight: 500;
+            margin-left: 35px;
+            transition: color 0.3s ease;
+        }
+
+        .navbar a:hover {
+            color: #38bdf8;
+        }
+
+        /* --- SECTIONS GENERAL --- */
+        section {
+            min-height: 100vh;
+            padding: 100px 10%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        /* --- ANIMATIONS --- */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        /* --- HERO SECTION --- */
+        #home {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+        }
+
+        .hero-text {
+            flex: 1;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero-text h1 {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+
+        .hero-text h1 span {
+            color: #38bdf8;
+        }
+
+        .hero-text h3 {
+            font-size: 24px;
+            color: #94a3b8;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            background-color: #38bdf8;
+            color: #0f172a;
+            font-weight: 600;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(56, 189, 248, 0.3);
+        }
+
+        .hero-img {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .hero-img img {
+            width: 320px;
+            height: 320px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid #38bdf8;
+            box-shadow: 0 0 25px rgba(56, 189, 248, 0.2);
+        }
+
+        /* --- PORTFOLIO SECTION --- */
+        #portfolio h2 {
+            font-size: 36px;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        #portfolio h2 span {
+            color: #38bdf8;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .portfolio-card {
+            background-color: #1e293b;
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .portfolio-card:hover {
+            transform: scale(1.03);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .portfolio-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .portfolio-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .portfolio-info {
+            padding: 20px;
+        }
+
+        .portfolio-info h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .portfolio-info p {
+            color: #94a3b8;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* --- RESPONSIVE DESIGN --- */
+        @media (max-width: 768px) {
+            header { padding: 20px 5%; }
+            #home { flex-direction: column-reverse; text-align: center; padding-top: 140px; }
+            .hero-text h1 { font-size: 36px; }
+            .navbar { display: none; } /* Sederhana untuk mobile, bisa dikembangkan dengan JS toggle */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- MENU NAVIGASI -->
+    <header>
+        <a href="#" class="logo">fitra punya</a>
+        <nav class="navbar">
+            <a href="#home">Beranda</a>
+            <a href="#portfolio">Proyek</a>
+            <a href="#contact">Kontak</a>
+        </nav>
+    </header>
+
+    <!-- BERANDA (HERO SECTION) -->
+    <section id="home">
+        <div class="hero-text">
+            <h1>Halo, Saya <span>Fitra Hanafi</span></h1>
+            <h3>Web Developer & Designer</h3>
+            <p style="color: #94a3b8; margin-bottom: 30px; line-height: 1.6;">
+                Saya fokus belajar membuat website yang interaktif, modern, dan ramah pengguna. 
+                Mari bekerja sama untuk mewujudkan ide digital Anda menjadi kenyataan.
+            </p>
+            <a href="#contact" class="btn">Hubungi Saya</a>
+        </div>
+        <div class="hero-img">
+            <!-- Ganti URL gambar di bawah dengan foto Anda sendiri -->
+            <img src="fitra.jpg" alt="fitra.jpg">
+        </div>
+    </section>
+
+    <!-- PORTFOLIO PROYEK -->
+    <section id="portofolio">
+        <h2>Proyek <span>Terbaru</span></h2>
+        
+        <div class="portfolio-grid">
+            <!-- Kartu Proyek 1 -->
+            <div class="portfolio-card">
+                <img src="robot.jpg" alt="Proyek 1">
+                <div class="portfolio-info">
+                    <h3>E-Commerce Website</h3>
+                    <p>Desain platform belanja online modern dengan sistem pembayaran terintegrasi dan responsif.</p>
+                </div>
+            </div>
+
+            <!-- Kartu Proyek 2 -->
+            <div class="portfolio-card">
+                <img src="komputer.jpg" alt="Proyek 2">
+                <div class="portfolio-info">
+                    <h3>Company Profile</h3>
+                    <p>Website interaktif untuk perusahaan teknologi yang menampilkan layanan dan portofolio bisnis.</p>
+                </div>
+            </div>
+
+            <!-- Kartu Proyek 3 -->
+            <div class="portfolio-card">
+                <img src="tekno.webp" alt="Proyek 3">
+                <div class="portfolio-info">
+                    <h3>Mobile App UI/UX</h3>
+                    <p>Rancangan antarmuka aplikasi kesehatan yang mengutamakan kenyamanan dan kemudahan akses pengguna.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- KONTAK -->
+    <section id="contact" style="text-align: center; background-color: #0b111e; min-height: 50vh;">
+        <h2 style="font-size: 36px; margin-bottom: 20px;">Mari <span>Mulai Bekerja Sama</span></h2>
+        <p style="color: #94a3b8; max-width: 600px; margin: 0 auto 30px; line-height: 1.6;">
+            Punya proyek menarik atau ingin sekadar menyapa? Jangan ragu untuk mengirimkan pesan.
+        </p>
+        <a href="fitra67198@gmail.com" class="btn">Kirim Email</a>
+    </section>
+
+</body>
+</html>
